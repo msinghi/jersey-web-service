@@ -1,0 +1,26 @@
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+buildscript {
+	apply from: file('gradle/buildscript.gradle'), to: buildscript
+}
+
+repositories { 
+    mavenLocal()
+    mavenCentral()
+}
+
+apply from: file('gradle/check.gradle')
+
+dependencies {
+
+    compile 'org.glassfish.jersey.core:jersey-server:2.16'
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet-core:2.16'
+    compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.16'
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+    compile 'ch.qos.logback:logback-access:1.1.2'
+
+    testCompile 'junit:junit:4.11'
+}
